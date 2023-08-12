@@ -2,6 +2,15 @@
     /* outline: 1px dotted red; */
     box-sizing: border-box;
 }
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
 #calc-body{
 margin: auto;
 width: 460px;
@@ -19,6 +28,16 @@ height: 90px;
 background: #9A9797;
 border-radius: 8px;
 margin: auto;
+}
+
+#screen p{
+    text-align: right;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 90px;
+    margin: auto;
+    margin-right: 0.5em;
 }
 
 #numpad{
@@ -42,7 +61,12 @@ height: 60px;
 background: #D9D9D9;
 border-radius: 4px;
 text-align: center;
+border: 1px solid midnightblue
 
+}
+
+.buttonDigit:hover {
+    background: #9A9797;
 }
 
 .buttonText{

@@ -31,9 +31,10 @@ function clearScreen(){
     else{
     historyContent.innerText = screenContent.innerText;
     screenContent.innerText = '';
-    // currentOperand.innerText = nextOperation;
-    // screen.append(currentOperand);
+    currentOperand.innerText = nextOperation;
+    
     screen.append(historyContent);
+    screen.append(currentOperand);
     screen.append(screenContent);
     }
 }
@@ -55,22 +56,27 @@ function divide(lastEntered, currentEntered){
 }
 
 function operate(){
+    currentOperand.innerText = '=';
     console.log(`history: ${history} | nextOp: ${nextOperation}`);
     switch (nextOperation){
         case '+':
             screenContent.innerText = add(history, parseFloat(screenContent.innerText));
+            screen.append(currentOperand);
             screen.append(screenContent);
             break;
         case '-':
             screenContent.innerText = subtract(history, parseFloat(screenContent.innerText));
+            screen.append(currentOperand);
             screen.append(screenContent);
             break;
         case 'x':
             screenContent.innerText = multiply(history, parseFloat(screenContent.innerText));
+            screen.append(currentOperand);
             screen.append(screenContent);
             break;
         case '/':
             screenContent.innerText = divide(history, parseFloat(screenContent.innerText));
+            screen.append(currentOperand);
             screen.append(screenContent);
             break;
     }

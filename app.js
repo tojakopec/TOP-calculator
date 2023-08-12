@@ -5,13 +5,13 @@ const backspace = document.querySelector('#button-backspace');
 const screenContent = document.querySelector('#screen-content');
 const clear = document.querySelector('#button-clear');
 const equals = document.querySelector('#button-operate');
+const historyContent = document.querySelector('#history');
+const currentOperand = document.querySelector('#current-operand');
 
 let history;
 let nextOperation;
 
 equals.addEventListener('click', operate);
-
-clear.addEventListener('click', clearScreen);
 
 backspace.addEventListener('click', event => {
     screenContent.innerText = screenContent.innerText.slice(0, -1);
@@ -22,8 +22,20 @@ backspace.addEventListener('click', event => {
 
 
 function clearScreen(){
+    if (nextOperation =='CLR'){
+        historyContent.innerText = '';
+        screenContent.innerText = '';
+        screen.append(historyContent);
+        screen.append(screenContent);
+    }
+    else{
+    historyContent.innerText = screenContent.innerText;
     screenContent.innerText = '';
+    // currentOperand.innerText = nextOperation;
+    // screen.append(currentOperand);
+    screen.append(historyContent);
     screen.append(screenContent);
+    }
 }
 
 function add(lastEntered, currentEntered){

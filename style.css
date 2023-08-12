@@ -3,6 +3,10 @@
     box-sizing: border-box;
 }
 
+html{
+    font-size: 16px;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -30,14 +34,35 @@ border-radius: 8px;
 margin: auto;
 }
 
-#screen p{
+#history{
+    height: 30%;
+    margin-bottom: 0;
+    margin-right: 1rem;
+    text-align: right;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    opacity: 0.6;
+}
+
+#current-operand{
+    position: relative;
+    margin-top: 0;
+    width: 4rem;
+    height: 4rem;
+}
+
+#screen-content{
+
     text-align: right;
     font-family: 'Orbitron', sans-serif;
     font-weight: bold;
     font-size: 2em;
-    line-height: 90px;
+    height: 70%;
     margin: auto;
-    margin-right: 0.5em;
+    margin-top: 0;
+    margin-right: 1rem;
+    width: 80%;
 }
 
 #numpad{

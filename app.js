@@ -10,6 +10,7 @@ const currentOperand = document.querySelector('#current-operand');
 
 let history;
 let nextOperation;
+let dotFlag = false;
 
 equals.addEventListener('click', operate);
 
@@ -25,7 +26,9 @@ function clearScreen(){
     if (nextOperation =='CLR'){
         historyContent.innerText = '';
         screenContent.innerText = '';
+        currentOperand.innerText = '';
         screen.append(historyContent);
+        screen.append(currentOperand);
         screen.append(screenContent);
     }
     else{
@@ -56,6 +59,7 @@ function divide(lastEntered, currentEntered){
 }
 
 function operate(){
+    dotFlag = false;
     currentOperand.innerText = '=';
     console.log(`history: ${history} | nextOp: ${nextOperation}`);
     switch (nextOperation){
@@ -85,16 +89,25 @@ function operate(){
 function listenForNumbers(){
     for (let num of buttonsNum){
         num.addEventListener('click', event => {
+            if (num.innerText == '.' && dotFlag == false){
+               dotFlag = true;
+            }
+
+            else if (num.innerText == '.' && dotFlag == true){
+                return;
+            }
             screenContent.innerText += num.innerText;
             screen.append(screenContent);
         });
     }
+    
 }
 
 function listenForOperands(){
     
     for (let op of buttonsOperand){
         op.addEventListener('click', event => {
+            dotFlag = false;
             history = parseFloat(screenContent.innerText);
             nextOperation = op.innerText;
             clearScreen();
